@@ -1,4 +1,4 @@
-All Things Pink Café ☕🎀
+# All Things Pink Café ☕🎀
 
 This is an old project I made to relearn the basics of HTML and play around with pixel art! It’s a cute, pink-themed café website with a pastel menu, pixel desserts, and an order form.
 Even though it's simple, I had a lot of fun making it, and it still has a special place in my heart. Hope you like this cozy little café! 
