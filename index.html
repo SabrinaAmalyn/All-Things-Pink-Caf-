@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>All Things Pink Café</title>
+
+        <!-- Importing Pixelify Sans Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+        
+        <!-- Stylesheet -->
+         <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Pixelify Sans', cursive;
+                overflow-x: hidden; /* Prevents horizontal scrolling */
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            .logo {
+                width: 80px;
+                height: auto; /* Maintains aspect ratio */
+            }            
+
+            .banner-img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            header {
+                background-color: #F3A6AC;
+                color: #fff;
+                font-weight: 700;
+                padding: 20px;
+                display: flex;
+                justify-content: flex-start; /* Aligns items to the left */
+                align-items: center;
+            }
+
+            nav {
+                margin-left: auto; /* Pushes the nav to the right */
+            }
+
+            nav ul li {
+                display: inline;
+                margin: 0 15px;
+                font-size: 1.2rem;
+            }
+            
+            nav ul li a {
+                text-decoration: none; /* Removes underline */
+                color: inherit; /* Keeps the text color same as the parent element */
+            }    
+
+            .menu-section {
+                text-align: center;
+                background-color: #F3A6AC;
+            }
+            
+            .menu-title {
+                font-size: 2.5rem;
+                color: white; /* Pink theme */
+            }
+            
+            .menu-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); /* 3 columns */
+                gap: 20px;
+                justify-content: center;
+                padding: 20px;
+            }
+            
+            .menu-item {
+                background-color: #FFC0CB; /* Light pink */
+                padding: 15px;
+                border-radius: 15px;
+                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+            
+            .menu-item img {
+                width: 100%;          /* Ensures it stretches across its container */
+                height: 180px;        /* Set a fixed height for consistency */
+                object-fit: contain;  /* Ensures the whole image is visible */
+                image-rendering: pixelated; /* Keeps the pixel art effect */
+                background-color: #fbe6e2;
+            }
+            
+            .menu-item h3 {
+                font-size: 1.6rem;
+                color: whitesmoke;
+            }
+            
+            .menu-decription {
+                font-size: 1.2rem;
+                color: #555;
+            }
+            
+            .menu-price {
+                font-weight: bold;
+                color: #D63384;
+                font-size: 1.4rem;
+            }
+
+            .order-section {
+                background-color: #d4f3e4; /* Light pastel background around */
+                padding: 10px 300px; /* Adds space around the order section */
+            }
+
+            .order-grid{
+                text-align: center;
+                padding: 30px;
+                margin: 30px auto;
+                background-color: #F3A6AC;
+                border-radius: 15px;
+
+                border-style: solid;
+                border-color: whitesmoke;
+                border-width: 15px;
+            }
+
+            .order-title {
+                font-size: 2rem;
+                color: white;
+                margin-bottom: 20px;
+            }
+
+            .order-form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .order-form label {
+                font-size: 1.2rem;
+                margin-top: 10px;
+                color: white;
+            }
+            
+            .order-form input {
+                width: 80%;
+                padding: 8px;
+                margin: 5px 0;
+                border-radius: 8px;
+                border: 1px solid #ff85a2; /* Light pink border */
+                font-size: 1rem;
+                background-color: #FFE4E1; /* Light pastel pink */
+                color: #333; /* Darker text for readability */
+            }
+            
+            .checkbox-group {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px; /* Reduces space between rows */
+                width: 100%;
+                padding: 0px 80px;
+            }
+            
+            .checkbox-group label {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                font-size: 1.2rem;
+                color: white;
+                padding: 5px 0; /* Reduce vertical padding */
+            }
+            
+            .checkbox-group input[type="number"] {
+                width: 50px; /* Slightly smaller */
+                text-align: center;
+                padding: 3px;
+                border-radius: 5px;
+                border: 1px solid #ff85a2;
+                background-color: #FFE4E1;
+                font-size: 1rem;
+                color: #333;
+                margin-left: 10px; /* Reduce left margin to bring closer to text */
+            }
+            
+            /* Styles for Add-Ons Section */
+            .add-ons-group {
+                display: flex;
+                flex-wrap: wrap; /* Allows items to wrap to the next line if needed */
+                gap: 15px; /* Creates space between checkboxes */
+                padding: 10px 80px;
+            }
+            
+            .add-ons-group label {
+                display: flex;
+                align-items: center;
+                font-size: 1.2rem;
+                color: white;
+                padding: 5px 10px;
+                white-space: nowrap; /* Prevents text from breaking */
+            }
+            
+            .add-ons-group input[type="checkbox"] {
+                margin-right: 8px; /* Space between checkbox and text */
+                transform: scale(1.2); /* Makes checkboxes slightly larger */
+                accent-color: #D63384; /* Custom pink checkbox */
+            }            
+            
+            .order-form textarea {
+                width: 80%;
+                padding: 10px;
+                border-radius: 8px;
+                border: 1px solid #ff85a2;
+                background-color: #FFE4E1;
+                font-size: 1rem;
+                color: #333;
+                resize: none;
+            }
+            
+            .order-form .submit-btn {
+                margin-top: 15px;
+                padding: 10px 20px;
+                background-color: #D63384;
+                color: white;
+                font-size: 1.2rem;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            
+            .order-form .submit-btn:hover {
+                background-color: #c0246e;
+            }           
+
+            footer {
+                background-color: #F3A6AC;
+                color: white;
+                text-align: center;
+                padding: 20px;
+                font-size: 1rem;
+            }
+    
+            .footer-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            
+         </style>
+    </head>
+
+    <body>
+        <header>
+            <img id ="header-img" src="images/logo.png" alt="Pink Cafe Logo" class="logo">
+            <h1>All Things Pink Café</h1>
+            <nav>
+                <ul>
+                    <li><a href="#banner">Home</a></li>
+                    <li><a href="#menu">Our Menu</a></li>
+                    <li><a href="#order">Order Form</a></li>
+                </ul>
+        </header>
+
+        <main>
+            <section id="banner">
+                <img class="banner-img" src="images/banner.jpg" alt="Pink Café Banner">
+            </section>
+
+            <section id="menu" class="menu-section">
+
+                <h2 class="menu-title">»»————　Menu　————««</h2>
+                
+                <div class="menu-grid">
+
+                    <article>
+                        <div class="menu-item">
+                            <img src="images/strawberry-cake.gif" alt="Pixel Strawberry Cake">
+                            <h3>Cherry Berry Cake</h3>
+                            <p class="menu-decription">Fluffy pixelated goodness!</p>
+                            <p class="menu-price">$8.99</p>
+                        </div>
+                    </article>
+                    <article>
+                        <div class="menu-item">
+                            <img src="images/drink.gif" alt="Pixel Fizzy Drink">
+                            <h3>Fizzy Wizzy Drink</h3>
+                            <p class="menu-decription">Refreshing and bubbly!</p>
+                            <p class="menu-price">$4.99</p>
+                        </div>
+                    </article>
+                    <article>
+                        <div class="menu-item">
+                            <img src="images/strawberry-sandwich.gif" alt="Pixel Strawberry Sandwich">
+                            <h3>Tutti Frutti Sandwich</h3>
+                            <p class="menu-decription">So tiny, so delicious.</p>
+                            <p class="menu-price">$5.49</p>
+                        </div>
+                    </article>
+                    <article>
+                        <div class="menu-item">
+                            <img src="images/swiss-roll.gif" alt="Pixel Swiss Roll">
+                            <h3>Jolly Molly Swiss Roll</h3>
+                            <p class="menu-decription">Swiss roll with a twist!</p>
+                            <p class="menu-price">$3.99</p>
+                        </div>
+                    </article>
+                    <article>
+                        <div class="menu-item">
+                            <img src="images/cupcake.gif" alt="Pixel Cupcake">
+                            <h3>Sassy Cassie Cupcake</h3>
+                            <p class="menu-decription">A mini adventure in taste.</p>
+                            <p class="menu-price">$3.50</p>
+                        </div>
+                    </article>
+                    <article>
+                        <div class="menu-item">
+                            <img src="images/pudding.gif" alt="Pixel Pudding">
+                            <h3>Jolly Molly Pudding</h3>
+                            <p class="menu-decription">Smooth and creamy!</p>
+                            <p class="menu-price">$7.99</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="order" class="order-section">   
+                <div class="order-grid">
+                    <h2 class="order-title">»»———— Place Your Order ————««</h2>
+                    <form class="order-form">
+            
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+            
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" name="phone" required>
+            
+                        <label>Select Items:</label>
+                        <div class="checkbox-group">
+                            <label>
+                                Cherry Berry Cake - $8.99
+                                <input type="number" name="cake" min="0" value="0">
+                            </label>
+                            <label>
+                                Fizzy Wizzy Drink - $4.99
+                                <input type="number" name="drink" min="0" value="0">
+                            </label>
+                            <label>
+                                Tutti Frutti Sandwich - $5.49
+                                <input type="number" name="sandwich" min="0" value="0">
+                            </label>
+                            <label>
+                                Jolly Molly Swiss Roll - $3.99
+                                <input type="number" name="swiss-roll" min="0" value="0">
+                            </label>
+                            <label>
+                                Sassy Cassie Cupcake - $3.50
+                                <input type="number" name="cupcake" min="0" value="0">
+                            </label>
+                            <label>
+                                Jolly Molly Pudding - $7.99
+                                <input type="number" name="pudding" min="0" value="0">
+                            </label>
+                        </div>
+
+                        <label>Add-Ons:</label>
+                        <div class="add-ons-group">
+                            <label>
+                                <input type="checkbox" name="add-on" value="extra-cream">
+                                Extra Whipped Cream (+$1.00)
+                            </label>
+                            <label>
+                                <input type="checkbox" name="add-on" value="chocolate-drizzle">
+                                Chocolate Drizzle (+$1.50)
+                            </label>
+                            <label>
+                                <input type="checkbox" name="add-on" value="sprinkles">
+                                Sprinkles (+$0.75)
+                            </label>
+                            <label>
+                                <input type="checkbox" name="add-on" value="caramel-drizzle">
+                                Caramel Drizzle (+$1.50)
+                            </label>
+                            <label>
+                                <input type="checkbox" name="add-on" value="hug">
+                                A Pat (Free)
+                            </label>
+                        </div>
+                        
+                        
+                        <label for="special-requests">Special Requests:</label>
+                        <textarea id="special-requests" name="special-requests" rows="3" placeholder="Let us know if you have any special instructions..."></textarea>
+                        
+                        <input type="submit" value="Go To Checkout" class="submit-btn">
+                    </form>
+                </div>
+            </section>
+            
+        </main>
+
+        <footer>
+            <div class="footer-container">
+                <p>© 2025 All Things Pink Café      |       Made with love by sbr16</p>
+            </div>
+        </footer>
+    </body>
+
+</html>
